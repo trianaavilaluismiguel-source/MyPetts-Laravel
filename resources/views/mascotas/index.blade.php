@@ -38,9 +38,9 @@
                         <td class="px-4 py-3">
                             <a href="/mascota/ver/{{ $mascota->id }}" class="font-medium text-brand-700 hover:underline">{{ $mascota->nombre }}</a>
                         </td>
-                        <td class="px-4 py-3 text-gray-600">{{ $mascota->especie }}</td>
-                        <td class="px-4 py-3 text-gray-600">{{ $mascota->raza }}</td>
-                        <td class="px-4 py-3 text-gray-600">{{ $mascota->dueno->nombre ?? 'N/A' }}</td>
+                        <td class="px-4 py-3 text-gray-600">{{ $mascota->tipos }}</td>
+                        <td class="px-4 py-3 text-gray-600">{{ $mascota->especies }}</td>
+                        <td class="px-4 py-3 text-gray-600">{{ $mascota->name->nombre ?? 'N/A' }}</td>
                         <td class="px-4 py-3">
                             @if ($mascota->estado_salud === 'al_dia')
                                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700">Al día</span>

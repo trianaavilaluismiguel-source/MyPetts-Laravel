@@ -33,16 +33,16 @@
                     <select name="mascota_id" class="rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400">
                         <option value="">-- Todas --</option>
                         @foreach ($mascotas as $mascota)
-                            <option value="{{ $mascota->id }}" @selected($mascotaId === $mascota->id)>{{ $mascota->nombre }}</option>
+                            <option value="{{ $mascota->id }}" @selected($mascotaId === $mascota->id)>{{ $mascota->nombres }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div>
+                <div
                     <label class="block text-sm font-medium text-gray-700 mb-1">Veterinario</label>
                     <select name="veterinario_id" class="rounded-xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400">
                         <option value="">-- Todos --</option>
                         @foreach ($veterinarios as $veterinario)
-                            <option value="{{ $veterinario->id }}" @selected($veterinarioId === $veterinario->id)>{{ $veterinario->nombre }}</option>
+                            <option value="{{ $veterinario->id }}" @selected($veterinarioId === $veterinario->id)>{{ $veterinario->nombres}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -90,7 +90,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-brand-50">
-                    @foreach ($datos as $fila)
+                    @foreach ($datos as $ruben)
                         <tr class="hover:bg-brand-50/30">
                             <td class="px-4 py-3">{{ \Carbon\Carbon::parse($fila->fecha)->format('d/m/Y') }}</td>
                             <td class="px-4 py-3 text-gray-600">{{ \Carbon\Carbon::parse($fila->hora)->format('h:i A') }}</td>
@@ -119,14 +119,14 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-brand-50">
-                    @foreach ($datos as $fila)
+                    @foreach ($datos as $filas)
                         <tr class="hover:bg-brand-50/30">
-                            <td class="px-4 py-3">{{ \Carbon\Carbon::parse($fila->fecha_aplicacion)->format('d/m/Y') }}</td>
-                            <td class="px-4 py-3 text-gray-600">{{ $fila->nombre_producto }}</td>
-                            <td class="px-4 py-3 text-gray-600">{{ ucfirst($fila->tipo) }}</td>
-                            <td class="px-4 py-3 text-gray-600">{{ $fila->nombre_mascota }}</td>
-                            <td class="px-4 py-3 text-gray-600">{{ $fila->nombre_veterinario }}</td>
-                            <td class="px-4 py-3 text-gray-600">{{ \Carbon\Carbon::parse($fila->fecha_proxima_dosis)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-3">{{ \Carbon\Carbon::parse($fila->fechas)->format('d/m/Y') }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ $fila->productos }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ ucfirst($fila->tipos) }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ $fila->nombremascota }}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ $fila->nombreveterinarioa}}</td>
+                            <td class="px-4 py-3 text-gray-600">{{ \Carbon\Carbon::parse($fila->fechaproximas_dosis)->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach
                 </tbody>
